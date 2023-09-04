@@ -8,49 +8,64 @@
 </head>
 <body>
 
+    <!-- create a container -->
     <div class="container">
+        <!-- create a left side of container -->
         <div id="left">
+            <!-- create list items to populate left side of container -->
+            <!-- we have list item class with draggable property populated with img and text -->
             <div class="list" draggable="true"><img src="icon.png" alt="">List Item 1</div>
             <div class="list" draggable="true"><img src="icon.png" alt="">List Item 2</div>
             <div class="list" draggable="true"><img src="icon.png" alt="">List Item 3</div>
             <div class="list" draggable="true"><img src="icon.png" alt="">List Item 4</div>
         </div>
+        <!-- create a right side of container to populate -->
         <div id="right"></div>
     </div>
 
     <script>
 
         // 3 variables
+        // grab our list elements
         let lists = document.getElementsByClassName("list");
+        // grab right and left boxes
         let rightBox = document.getElementById("right");
         let leftBox = document.getElementById("left");
 
+        // increment through list elements in lists
         for (list of lists) {
+            // add event listener to each list item
+            // use dragstart and provide a event parameter to the callback function
             list.addEventListener("dragstart", function(e){
+                // grab the selected element in a variable thats been targeted by mouse
                 let selected = e.target;
 
+                // dragover event listener on right box
                 rightBox.addEventListener("dragover", function(e){
+                    // prevent default behaviour
                     e.preventDefault();
                 })
+                // add drop event listener 
                 rightBox.addEventListener("drop", function(e){
+                    // append child with selected variable created on target mouse press
                     rightBox.appendChild(selected);
-                    // clear selection
+                    // clear selection back to null or no target selection
                     selected = null;
                 })
 
+                // repeat steps for left box
+                // drag over function to prevent default
                 leftBox.addEventListener("dragover", function(e){
                     e.preventDefault();
                 })
+                // drop function event listener to append left box element with select element
                 leftBox.addEventListener("drop", function(e){
                     leftBox.appendChild(selected);
-                    // clear selection
+                    // clear selection back to no selection
                     selected = null;
                 })
             })
         }
-
-
     </script>
-    
 </body>
 </html>
