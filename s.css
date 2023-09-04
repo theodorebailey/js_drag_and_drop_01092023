@@ -1,3 +1,4 @@
+/* set default page styling */
 *{
     margin: 0;
     padding: 0;
@@ -5,6 +6,7 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+/* define container styling for app */
 .container{
     width: 100%;
     min-height: 100vh;
@@ -14,6 +16,7 @@
     justify-content: center;
 }
 
+/* create styling with left and right box to match */
 #left, #right{
     width: 300px;
     min-height: 400px;
@@ -21,6 +24,7 @@
     border: 2px dashed #fff;
 }
 
+/* style list elements to fit in box */
 .list{
     background: #e91e63;
     height: 60px;
@@ -31,8 +35,9 @@
     cursor: grab;
 }
 
+/* style image element contained in list items */
 .list img{
-    width: 10px;
+    width: 20px;
     margin-right: 15px;
     margin-left: 20px;
 }
